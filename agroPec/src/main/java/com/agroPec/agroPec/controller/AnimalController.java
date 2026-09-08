@@ -1,5 +1,6 @@
 package com.agroPec.agroPec.controller;
 
+import com.agroPec.agroPec.dto.AnimalRequestDTO;
 import com.agroPec.agroPec.model.AnimalModel;
 import com.agroPec.agroPec.service.AnimalService;
 
@@ -31,14 +32,14 @@ public class AnimalController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AnimalModel> createAnimal(@RequestBody AnimalModel animal){
+    public ResponseEntity<AnimalModel> createAnimal(@RequestBody AnimalRequestDTO animal){
         AnimalModel animalCreated = animalService.createAnimal(animal);
         return ResponseEntity.status(HttpStatus.CREATED).body(animalCreated);
     }
 
     @PutMapping("/update/{id}")
     public ResponseEntity<AnimalModel> updateAnimal(@PathVariable String id,
-                                                    @RequestBody AnimalModel animal){
+                                                    @RequestBody AnimalRequestDTO animal){
         return ResponseEntity.ok(animalService.updateAnimal(id, animal));
     }
     @DeleteMapping("/delete/{id}")
