@@ -1,5 +1,6 @@
 package com.agroPec.agroPec.service;
 
+import com.agroPec.agroPec.dto.AnimalRequestDTO;
 import com.agroPec.agroPec.model.AnimalModel;
 import com.agroPec.agroPec.repository.AnimalRepository;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,17 @@ public class AnimalService {
         this.animalRepository = animalRepository;
     }
 
-    public AnimalModel createAnimal(AnimalModel animalModel){
-        return animalRepository.insert(animalModel);
+    public AnimalModel createAnimal(AnimalRequestDTO animalDTO){
+
+        AnimalModel animal = new AnimalModel();
+
+        animal.setBrinco(animalDTO.getBrinco());
+        animal.setRaca(animalDTO.getRaca());
+        animal.setPesoEntrada(animalDTO.getPesoEntrada());
+        animal.setPesagens(animalDTO.getPesagens());
+        animal.setVacinacoes(animalDTO.getVacinacoes());
+
+        return animalRepository.insert(animal);
     }
 
     public List<AnimalModel> findAllAnimals(){
@@ -30,12 +40,13 @@ public class AnimalService {
         animalRepository.deleteById(id);
     }
 
-    public AnimalModel updateAnimal(String id, AnimalModel animalModel){
+    public AnimalModel updateAnimal(String id, AnimalRequestDTO animalDTO){
         AnimalModel oldAnimal = findByIdAnimal(id);
 
-        oldAnimal.setBrinco(animalModel.getBrinco());
-        oldAnimal.setRaca(animalModel.getRaca());
-        oldAnimal.setPesoEntrada(animalModel.getPesoEntrada());
+        oldAnimal.setBrinco(animalDTO.getBrinco());
+        oldAnimal.setRaca(animalDTO.getRaca());
+        oldAnimal.setPesoEntrada(animalDTO.getPesoEntrada());
+        oldAnimal.setVacinacoes(animalDTO.getVacinacoes());
 
         return animalRepository.save(oldAnimal);
     }
