@@ -4,6 +4,7 @@ import com.agroPec.agroPec.dto.AnimalRequestDTO;
 import com.agroPec.agroPec.model.AnimalModel;
 import com.agroPec.agroPec.service.AnimalService;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,7 @@ public class AnimalController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AnimalModel> createAnimal(@RequestBody AnimalRequestDTO animal){
+    public ResponseEntity<AnimalModel> createAnimal(@Valid  @RequestBody AnimalRequestDTO animal){
         AnimalModel animalCreated = animalService.createAnimal(animal);
         return ResponseEntity.status(HttpStatus.CREATED).body(animalCreated);
     }
