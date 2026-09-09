@@ -44,7 +44,7 @@ public class AnimalController {
         return ResponseEntity.ok(animalService.updateAnimal(id, animal));
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteAnimal(@PathVariable String id){
+    public ResponseEntity<Void> deleteAnimal(@PathVariable String id){
         animalService.deleteByIdAnimal(id);
         return ResponseEntity.noContent().build();
     }
