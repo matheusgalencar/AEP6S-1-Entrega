@@ -1,7 +1,7 @@
-package com.agroPec.agroPec.dto;
+package com.agroPec.agropec.dto;
 
-import com.agroPec.agroPec.model.PesagemModel;
-import com.agroPec.agroPec.model.VacinacaoModel;
+import com.agroPec.agropec.model.PesagemModel;
+import com.agroPec.agropec.model.VacinacaoModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;

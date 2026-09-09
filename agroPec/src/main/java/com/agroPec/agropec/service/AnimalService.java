@@ -1,8 +1,8 @@
-package com.agroPec.agroPec.service;
+package com.agroPec.agropec.service;
 
-import com.agroPec.agroPec.dto.AnimalRequestDTO;
-import com.agroPec.agroPec.model.AnimalModel;
-import com.agroPec.agroPec.repository.AnimalRepository;
+import com.agroPec.agropec.dto.AnimalRequestDTO;
+import com.agroPec.agropec.model.AnimalModel;
+import com.agroPec.agropec.repository.AnimalRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

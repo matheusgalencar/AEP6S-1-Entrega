@@ -1,8 +1,8 @@
-package com.agroPec.agroPec.controller;
+package com.agroPec.agropec.controller;
 
-import com.agroPec.agroPec.dto.AnimalRequestDTO;
-import com.agroPec.agroPec.model.AnimalModel;
-import com.agroPec.agroPec.service.AnimalService;
+import com.agroPec.agropec.dto.AnimalRequestDTO;
+import com.agroPec.agropec.model.AnimalModel;
+import com.agroPec.agropec.service.AnimalService;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

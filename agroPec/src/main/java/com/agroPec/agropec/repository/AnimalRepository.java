@@ -1,6 +1,6 @@
-package com.agroPec.agroPec.repository;
+package com.agroPec.agropec.repository;
 
-import com.agroPec.agroPec.model.AnimalModel;
+import com.agroPec.agropec.model.AnimalModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

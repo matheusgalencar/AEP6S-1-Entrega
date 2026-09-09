@@ -1,4 +1,4 @@
-package com.agroPec.agroPec.model;
+package com.agroPec.agropec.model;
 
 import lombok.Getter;
 import lombok.Setter;
