@@ -1,0 +1,31 @@
+db.createCollection("animais",{
+  validator:{
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["brinco", "pesoEntrada","raca"],
+      properties:{
+        brinco:{
+          bsonType: "string"
+        },
+        pesoEntrada:{
+          bsonType: "double"
+        },
+        raca:{
+          bsonType:"string"
+        },
+        pesagens:{
+          bsonType:"array",
+          items: {
+            bsonType:"object"
+          }
+        },
+        vacinacoes:{
+          bsonType:"array",
+          items:{
+            bsonType: "object"
+          }
+        }
+      }
+    }
+  }
+})
