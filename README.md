@@ -63,7 +63,6 @@ As rotas estruturadas para a primeira entrega são:
 
 No cadastro e na atualização, enviamos os dados em JSON, com o cabeçalho `Content-Type: application/json`.
 As rotas com `{id}` usam o identificador do registro no banco, e não o número do brinco.
-Ainda precisamos ajustar a validação do peso no cadastro, o processamento das vacinações e a atualização das pesagens para completar o fluxo previsto.
 
 ## Como executar
 
@@ -83,9 +82,6 @@ A conexão local já está configurada em `src/main/resources/application.proper
 ```properties
 spring.mongodb.uri=mongodb://localhost:27017/agroPec
 ```
-
-O arquivo `.env` é opcional para essa configuração local.
-Para utilizar outro servidor MongoDB, altere a URI ou configure a variável de ambiente `SPRING_MONGODB_URI`.
 
 No Windows, execute pelo PowerShell:
 
