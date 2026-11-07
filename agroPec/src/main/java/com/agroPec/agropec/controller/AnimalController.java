@@ -1,5 +1,6 @@
 package com.agroPec.agropec.controller;
 
+import com.agroPec.agropec.dto.AnimalPesagemDTO;
 import com.agroPec.agropec.dto.AnimalRequestDTO;
 import com.agroPec.agropec.model.AnimalModel;
 import com.agroPec.agropec.service.AnimalService;
@@ -32,12 +33,24 @@ public class AnimalController {
         return ResponseEntity.ok(animal);
     }
 
+    @GetMapping("/list/{brincoAnimal}")
+    public ResponseEntity<AnimalModel> buscarPorBrinco(@PathVariable String brincoAnimal){
+        AnimalModel animal = animalService.buscarPorBrinco(brincoAnimal);
+        return ResponseEntity.ok(animal);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<AnimalModel> createAnimal(@Valid  @RequestBody AnimalRequestDTO animal){
         AnimalModel animalCreated = animalService.createAnimal(animal);
         return ResponseEntity.status(HttpStatus.CREATED).body(animalCreated);
     }
 
+    @PostMapping("/pesarAnimal")
+    public ResponseEntity<AnimalModel> pesarAnimal(@Valid @RequestBody AnimalPesagemDTO animal){
+        AnimalModel animalPesado = animalService.pesarAnimal(animal.getNovoPeso(), animal.getBrincoAnimal());
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(animalPesado);
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<AnimalModel> updateAnimal(@PathVariable String id,
                                                     @RequestBody AnimalRequestDTO animal){
@@ -48,4 +61,5 @@ public class AnimalController {
         animalService.deleteByIdAnimal(id);
         return ResponseEntity.noContent().build();
     }
+
 }
