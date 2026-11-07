@@ -12,7 +12,8 @@ import java.math.BigDecimal;
 public class AnimalLoteModel {
     private String animalId;
     private String brincoAnimal;
+    private String raca;
 
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal pesoAnimalCompra;
+    private Double pesoAnimalCompra;
+
 }

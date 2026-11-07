@@ -25,8 +25,7 @@ public class LoteModel {
 
     private List<AnimalLoteModel> animais;
 
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal valorLoteCompra;
+    private Double valorLoteCompra;
 
     private String status;
 

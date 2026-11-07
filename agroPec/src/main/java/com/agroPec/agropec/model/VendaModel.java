@@ -27,17 +27,11 @@ public class VendaModel {
     private Long quantidadeAnimais;
 
     private List<AnimalVenda> animais;
-
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal pesoTotal;
+    private Long pesoTotal;
 
     private String tipoNegociacao;
-
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal valorPorArroba;
-
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal valorTotalVenda;
+    private Double valorPorArroba;
+    private Double valorTotalVenda;
 
     private String status;
     private String observacao;

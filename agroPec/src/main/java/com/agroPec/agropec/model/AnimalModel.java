@@ -1,5 +1,6 @@
 package com.agroPec.agropec.model;
 
+import com.agroPec.agropec.model.enums.EStatusAnimal;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -21,4 +22,6 @@ public class AnimalModel {
 
     private List<PesagemModel> pesagens;
     private List<VacinacaoModel> vacinacoes;
+
+    private EStatusAnimal status;
 }

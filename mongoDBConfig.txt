@@ -89,10 +89,10 @@ db.createCollection("lotes", {
           properties:{
             animalId:{bsonType:"string"},
             brincoAnimal:{bsonType:"string"},
-            pesoAnimalCompra:{bsonType: "decimal"}
+            pesoAnimalCompra:{bsonType: ["double","decimal"], minimum: 0}
           }
           }},
-        valorLoteCompra:{bsonType:"decimal"},
+        valorLoteCompra:{bsonType:["double","decimal"], minimum:0},
         status:{bsonType:"string", enum:["ATIVO","VENDIDO"]}
       }
     }
@@ -143,22 +143,22 @@ db.createCollection("vendas", {
             properties:{
             animalId:{bsonType:"string"},
             brincoAnimal:{bsonType:"string"},
-            pesoAnimalVenda:{bsonType: "decimal"}
+            pesoAnimalVenda:{bsonType: ["double","decimal"], minimum:0}
           }
           }
         },
         pesoTotal: {
-          bsonType: "decimal"
+          bsonType: ["double","decimal"]
         },
         tipoNegociacao: {
           bsonType: "string",
           enum: ["VALOR_FECHADO", "POR_ARROBA"]
         },
         valorPorArroba: {
-          bsonType: "decimal"
+          bsonType: ["double","decimal"], minimum
         },
         valorTotalVenda: {
-          bsonType: "decimal"
+          bsonType: ["double","decimal"], minimum:0
         },
         status: {
           bsonType: "string",

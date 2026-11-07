@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface AnimalRepository extends MongoRepository<AnimalModel, String> {
+public interface IAnimalRepository extends MongoRepository<AnimalModel, String> {
     Optional<AnimalModel> buscarPorBrinco(String brinco);
 }

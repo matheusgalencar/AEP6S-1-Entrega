@@ -14,6 +14,5 @@ public class AnimalVenda {
     private String animalId;
     private String brincoAnimal;
 
-    @Field(targetType = FieldType.DECIMAL128)
-    private BigDecimal pesoAnimalVenda;
+    private Double pesoAnimalVenda;
 }
