@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LoteService {
@@ -49,5 +50,16 @@ public class LoteService {
         lote.setQuantidadeAnimais((long) animaisDoLote.size());
 
         return loteRepository.save(lote);
+    }
+
+    public List<LoteModel> listarLotes(){
+        return loteRepository.findAll();
+    }
+
+    public Optional<LoteModel> listarLoteId(String id){
+        return loteRepository.findById(id);
+    }
+    public Optional<LoteModel> buscarPorCodigo(String codigoLote){
+        return loteRepository.buscarPorCodigoLote(codigoLote);
     }
 }

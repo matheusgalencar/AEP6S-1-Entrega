@@ -14,17 +14,18 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VendaService {
     private final IAnimalRepository animalRepository;
     private final ILoteRepository loteRepository;
-    private final IVendaRepository iVendaRepository;
+    private final IVendaRepository vendaRepository;
 
     public VendaService(IAnimalRepository animalRepository, ILoteRepository loteRepository, IVendaRepository iVendaRepository){
         this.animalRepository = animalRepository;
         this.loteRepository = loteRepository;
-        this.iVendaRepository = iVendaRepository;
+        this.vendaRepository = iVendaRepository;
     }
 
     public VendaModel venderLote(VendaLoteDTO loteVendido){
@@ -79,6 +80,18 @@ public class VendaService {
             loteAtual.setStatus("VENDIDO");
             loteRepository.save(loteAtual);
         }
-        return iVendaRepository.save(venda);
+        return vendaRepository.save(venda);
+    }
+
+    public List<VendaModel> listarVendas(){
+        return vendaRepository.findAll();
+    }
+
+    public Optional<VendaModel> listarVendaCodigo(String codigoVenda){
+        return vendaRepository.buscaPorCodigoVenda(codigoVenda);
+    }
+
+    public Optional<VendaModel> listarVendaId(String id){
+        return vendaRepository.findById(id);
     }
 }
