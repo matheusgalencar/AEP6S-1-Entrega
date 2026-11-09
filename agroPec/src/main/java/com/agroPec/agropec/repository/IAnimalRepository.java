@@ -4,7 +4,9 @@ import com.agroPec.agropec.model.AnimalModel;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface AnimalRepository extends MongoRepository<AnimalModel, String> {
+import java.util.Optional;
 
+@Repository
+public interface IAnimalRepository extends MongoRepository<AnimalModel, String> {
+    Optional<AnimalModel> buscarPorBrinco(String brinco);
 }
