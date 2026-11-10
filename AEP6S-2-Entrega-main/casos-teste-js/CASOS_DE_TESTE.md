@@ -1,7 +1,6 @@
 # Catálogo de casos de teste - AgroPec
 
-## A. Caixa-preta — comportamento externo da API
-
+## A. Caixa-preta 
 Os casos abaixo verificam entradas e saídas sem depender da implementação interna. Os caminhos foram extraídos dos controllers do projeto.
 
 | ID | Funcionalidade / cenário | Entrada / procedimento | Resultado esperado | Situação inicial |
