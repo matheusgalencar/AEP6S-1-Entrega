@@ -1,0 +1,173 @@
+db.createCollection("animais", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "brinco",
+        "pesoEntrada",
+        "raca"
+      ],
+      properties: {
+        brinco: {
+          bsonType: "string",
+          description: "Identificação única do animal"
+        },
+        pesoEntrada: {
+          bsonType: ["double", "decimal"],
+          minimum: 0,
+          description: "Peso do animal na entrada do sistema"
+        },
+        raca: {
+          bsonType: "string"
+        },
+        pesagens: {
+          bsonType: "array",
+          items: {
+            bsonType: "object",
+            required: [
+              "data",
+              "peso"
+            ],
+            properties: {
+              data: {
+                bsonType: "date"
+              },
+              peso: {
+                bsonType: ["double", "decimal"],
+                minimum: 0
+              }
+            }
+          }
+        },
+        vacinacoes: {
+          bsonType: "array",
+          items: {
+            bsonType: "object",
+            required: [
+              "data",
+              "descricaoVacina"
+            ],
+            properties: {
+              data: {
+                bsonType: "date"
+              },
+              descricaoVacina: {
+                bsonType: "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+});
+db.createCollection("lotes", {
+  validator:{
+    $jsonSchema:{
+      bsonType: "object",
+      required:[
+        "codigoLote",
+        "descricao",
+        "dataEntrada",
+        "quantidadeAnimais",
+        "animais",
+        "valorLoteCompra",
+        "status"
+      ],
+      properties:{
+        codigoLote:{bsonType:"string"},
+        descricao:{bsonType:"string"},
+        dataEntrada:{bsonType:"date"},
+        quantidadeAnimais:{bsonType:"long"},
+        animais:{bsonType:"array", items:{
+          bsonType:"object",
+          required:[
+            "animalId",
+            "brincoAnimal",
+            "pesoAnimalCompra"
+          ],
+          properties:{
+            animalId:{bsonType:"string"},
+            brincoAnimal:{bsonType:"string"},
+            pesoAnimalCompra:{bsonType: ["double","decimal"], minimum: 0}
+          }
+          }},
+        valorLoteCompra:{bsonType:["double","decimal"], minimum:0},
+        status:{bsonType:"string", enum:["ATIVO","VENDIDO"]}
+      }
+    }
+  }
+});
+
+db.createCollection("vendas", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "codigoVenda",
+        "codigoLote",
+        "dataVenda",
+        "comprador",
+        "quantidadeAnimais",
+        "animais",
+        "pesoTotal",
+        "tipoNegociacao",
+        "valorTotalVenda",
+        "status"
+      ],
+      properties: {
+        codigoVenda: {
+          bsonType: "string"
+        },
+        codigoLote: {
+          bsonType: "string"
+        },
+        dataVenda: {
+          bsonType: "date"
+        },
+        comprador: {
+          bsonType: "string"
+        },
+        quantidadeAnimais: {
+          bsonType: "int"
+        },
+        animais:{
+          bsonType:"array",
+          items:{
+            bsonType:"object",
+            required:[
+              "animalId",
+              "brincoAnimal",
+              "pesoAnimalVenda"
+            ],
+            properties:{
+            animalId:{bsonType:"string"},
+            brincoAnimal:{bsonType:"string"},
+            pesoAnimalVenda:{bsonType: ["double","decimal"], minimum:0}
+          }
+          }
+        },
+        pesoTotal: {
+          bsonType: ["double","decimal"]
+        },
+        tipoNegociacao: {
+          bsonType: "string",
+          enum: ["VALOR_FECHADO", "POR_ARROBA"]
+        },
+        valorPorArroba: {
+          bsonType: ["double","decimal"], minimum
+        },
+        valorTotalVenda: {
+          bsonType: ["double","decimal"], minimum:0
+        },
+        status: {
+          bsonType: "string",
+          enum: ["CONCLUIDA", "CANCELADA"]
+        },
+        observacao: {
+          bsonType: "string"
+        }
+      }
+    }
+  }
+});
